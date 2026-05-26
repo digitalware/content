@@ -1,0 +1,143 @@
+@media (max-width: 767px) {
+  html {
+    font-size: 43.75%; /* 7px */
+  }
+
+
+
+
+
+
+
+
+.top .wrap {
+    display: block;
+}
+.top .wrap .lbox {
+    width: 89%;
+}
+.top .wrap .lbox article {
+    margin-top: 7%;
+}
+.top .wrap .lbox article img {
+    margin-top: 2%;
+    object-fit: contain;
+    width: 10%;
+}
+.top .wrap .lbox article h3  {
+    font-size: 5rem;
+}
+.top .wrap .lbox article p {
+    font-size: 4rem;
+}
+.top .wrap .lbox article > span {
+    width: 90%;
+    height: 50px;
+}
+
+.top .wrap .lbox article > span p {
+    font-size: 4rem;
+}
+.top .wrap .lbox article span + em {
+    font-size: 4rem;
+}
+.top .wrap .rbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 5%;
+}
+.top .wrap .rbox > div {
+    width: 48%;
+}
+.top .wrap .rbox > div:last-child {
+    margin: 0;
+}
+.top .wrap .rbox > div article span {
+    font-size: 3rem;
+}
+.top .wrap .rbox > div .i figure {
+    width: 70px;
+    height: 70px;
+}
+.top .wrap .rbox > div .i figure img {
+    object-fit: contain;
+    width: 100%;
+    height: 30px;
+}
+.top .wrap .rbox > div .i span {
+    margin-bottom: 20px;
+}
+.mid .wrap ul li {
+    height: 200px;
+}
+.mid .wrap ul li img {
+    object-fit: contain;
+    width: 100%;
+    height: 15%;
+}
+.mid .wrap ul li p {
+    font-size: 3.5rem;
+}
+.mid .wrap ul li span {
+    font-size: 3.8rem;
+}
+
+
+
+
+.bot .wrap {
+    height: 850px;
+}
+.bot .wrap h4 {
+    margin-left: 0;
+    text-align: center;
+    margin-top: 5%;
+}
+.bot .wrap ul {
+    flex-wrap: wrap;
+    margin-top: 15%;
+}
+.bot .wrap ul li {
+    width: 24%;
+    height: 250px;
+}
+.bot .wrap ul li:nth-child(4), .bot .wrap ul li:nth-child(5) {
+    width: 41%;
+    margin-top: 5%;
+}
+.bot .wrap ul li p {
+    font-size: 4rem;
+}
+.bot .wrap ul li img {
+    object-fit: contain;
+    height: 50px;
+    width: 100%;
+}
+.bot .wrap ul li strong {
+    font-size: 6rem;
+}
+.bot .wrap ul li span {
+    font-size: 4rem;
+    display: block;
+    height: 60px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
