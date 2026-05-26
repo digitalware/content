@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, 
+    initial-scale=1, minimum-scale=1, 
+    maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/p_style.css">
+    <link rel="stylesheet" href="css/t_style.css">
+    <link rel="stylesheet" href="css/m_style.css">
+    <link rel="stylesheet" href="reset/css/reset.css">
+    <link rel="stylesheet" href="reset/font/css/font.css">
+    <title>날씨정보</title>
+    <script src="../location-loader.js"></script>
+</head>
+<body>
+<div class="bg">
+  <video id="bgVideo" src="" autoplay muted playsinline loop></video>
+</div>
+<header>
+    <div class="wrap">
+        <h1>율곡고등학교</h1>
+        <div class="date-time" id="date-time"></div>
+    </div>
+</header>
+
+<section>
+    <div class="wrap">
+
+        <!-- 상단 -->
+        <div class="top fl flb">
+
+            <!-- 현재 날씨 -->
+            <div class="lbox fl flb">
+                <img id="current-weather-icon" src="" alt="날씨" class="weather-icon-large">
+
+                <article>
+                    <h3 id="current-temp">--°</h3>
+                    <p id="current-weather">로딩중...</p>
+                    <span>
+                        H: <span id="current-temp-max">--°</span> /
+                        L: <span id="current-temp-min">--°</span>
+                    </span>
+                </article>
+            </div>
+
+            <!-- 대기질 -->
+            <div class="rbox">
+                <p id="station-name">대기질 정보</p>
+
+                <div class="fl flb">
+                    <article id="pm10-card">
+                        <span class="air-quality-desc" id="pm10-desc"></span>
+                        <h3 class="air-quality-value" id="pm10">-- <span>µg/m³</span></h3>
+                        <p id="pm10-grade">-</p>
+                    </article>
+                    <article id="pm25-card">
+                        <span class="air-quality-desc" id="pm25-desc"></span>
+                        <h3 class="air-quality-value" id="pm25">-- <span>µg/m³</span></h3>
+                        <p id="pm25-grade">-</p>
+                    </article>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 중간 정보 -->
+        <div class="mid">
+            <div class="wrap">
+                <ul class="fl flb">
+
+                    <li>
+                        <img src="images/weather/wind speed.png" alt="풍속">
+                        <span>풍속</span>
+                        <p id="current-wind">--</p>
+                    </li>
+
+                    <li>
+                        <img src="images/weather/temperature.png" alt="체감온도">
+                        <span>체감온도</span>
+                        <p id="current-feels-like">--</p>
+                    </li>
+
+                    <li>
+                        <img src="images/weather/humidity.png" alt="습도">
+                        <span>습도</span>
+                        <p id="current-humidity">--</p>
+                    </li>
+
+                    <li>
+                        <img src="images/weather/clouds.png" alt="구름량">
+                        <span>구름량</span>
+                        <p id="current-clouds">--</p>
+                    </li>
+
+                    <li>
+                        <img src="images/weather/highest temperature.png" alt="최고기온">
+                        <span>최고기온</span>
+                        <p id="current-temp-max-2">--</p>
+                    </li>
+
+                    <li>
+                        <img src="images/weather/lowest temperature.png" alt="최저기온">
+                        <span>최저기온</span>
+                        <p id="current-temp-min-2">--</p>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- 주간 예보 -->
+        <div class="bot">
+            <div class="wrap">
+                <h4>Weekly Forecast</h4>
+
+                <ul class="fl flb">
+                    <li>
+                        <p id="forecast1-date">-</p>
+                        <img id="forecast1-icon" src="" alt="날씨">
+                        <strong id="forecast1-temp">--</strong>
+                        <span id="forecast1-desc">-</span>
+                    </li>
+
+                    <li>
+                        <p id="forecast2-date">-</p>
+                        <img id="forecast2-icon" src="" alt="날씨">
+                        <strong id="forecast2-temp">--</strong>
+                        <span id="forecast2-desc">-</span>
+                    </li>
+
+                    <li>
+                        <p id="forecast3-date">-</p>
+                        <img id="forecast3-icon" src="" alt="날씨">
+                        <strong id="forecast3-temp">--</strong>
+                        <span id="forecast3-desc">-</span>
+                    </li>
+
+                    <li>
+                        <p id="forecast4-date">-</p>
+                        <img id="forecast4-icon" src="" alt="날씨">
+                        <strong id="forecast4-temp">--</strong>
+                        <span id="forecast4-desc">-</span>
+                    </li>
+
+                    <li>
+                        <p id="forecast5-date">-</p>
+                        <img id="forecast5-icon" src="" alt="날씨">
+                        <strong id="forecast5-temp">--</strong>
+                        <span id="forecast5-desc">-</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- <button onclick="setBackgroundVideo('Clear','01d')">맑음</button>
+<button onclick="setBackgroundVideo('Clouds','03d')">구름</button>
+<button onclick="setBackgroundVideo('Rain','10d')">비</button>
+<button onclick="setBackgroundVideo('Snow','13d')">눈</button>
+<button onclick="setBackgroundVideo('Clear','01n')">밤</button> -->
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+    // 시간 표시
+    updateDateTime();
+
+    // 날씨/예보 정보 업데이트
+    const currentWeather = await getCurrentWeather();
+    const forecastWeather = await getForecastWeather();
+
+    // 대기질 정보 업데이트
+    await updateAirQualityIfNeeded();
+
+    // 배경 영상 설정
+    const videoEl = document.getElementById('bgVideo');
+    if (currentWeather && videoEl) {
+        const icon = currentWeather.weather[0].icon;
+        setBackgroundVideo(currentWeather.weather[0].main, icon);
+    }
+    
+
+    // 캐시에서 가져온 데이터 있으면 화면에 표시
+    const cachedWeather = getCachedWeatherData();
+    if (cachedWeather) displayWeatherData(cachedWeather);
+});
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>

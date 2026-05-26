@@ -1,0 +1,133 @@
+@media (max-width: 767px) {
+  html {
+    font-size: 43.75%; /* 7px */
+  }  
+section > .wrap {
+    height: 96vh;
+  }
+
+
+  header {
+    margin-top: 2rem;
+  }
+
+  header .wrap h1 {
+    font-size: 10rem;
+    margin-top: 10rem;
+  }
+
+  header .wrap h1 + div {
+    font-size: 5rem;
+  }
+
+  section .wrap .top {
+    display: block;
+    margin-top: 10%;
+  }
+
+  section .wrap .top .lbox img {
+    height: 10vh;
+    margin-right: 1rem;
+  }
+
+  section .wrap .top .lbox article h3 {
+    font-size: 23rem;
+  }
+
+  section .wrap .top .lbox article p {
+    font-size: 10rem;
+  }
+  section .wrap .top .lbox article > span {
+    font-size: 3rem;
+  }
+  section .wrap .top .rbox {
+    width: 100%;
+    height: 200px;
+  }
+  section .wrap .top .rbox > p {
+    font-size: 5rem;
+    padding-top: 2rem;
+  }
+  section .wrap .top .rbox article h3 {
+    font-size: 6rem;
+    width: 200%;
+    display: block;
+  }
+  section .wrap .top .rbox .fl {
+    margin-right: 20rem;
+  }
+  section .wrap .top .rbox article p {
+    width: 20rem;
+    height: 5rem;
+    margin-top: 2rem;
+    font-size: 4rem;
+  }
+ section .wrap .mid {
+    text-align: center;
+    height: 400px;
+ }
+  section .wrap .mid .wrap {
+    height: 100%;
+  }
+  section .wrap .mid ul {
+    flex-wrap: wrap;
+    height: 100%;
+    align-items: flex-end;
+  }
+
+  section .wrap .mid ul li {
+    width: 30%;
+    height: 45%;
+    padding: 0.8rem;
+    margin-top: 10px;
+    padding-top: 5rem;
+  }
+  section .wrap .mid ul li img {
+    width: 5rem;
+  }
+  section .wrap .mid ul li span {
+    font-size: 1.4vh;
+    margin-top: 10%;
+    display: block;
+  }
+
+  section .wrap .mid ul li p {
+    font-size: 2vh;
+  }
+  section .wrap .bot {
+    padding-top: 20rem;
+    height: 400px;
+  }
+    section .wrap .bot .wrap {
+      height: 100%;
+    }
+  section .wrap .bot h4 {
+    font-size: 6rem;
+  }
+  section .wrap .bot ul {
+    flex-wrap: nowrap;
+    height: 100%;
+  }
+  section .wrap .bot ul li {
+    height: 100%;
+  }
+
+  section .wrap .bot ul li p {
+    font-size: 2.5rem;
+    margin-top: 20%;
+  }
+
+  section .wrap .bot ul li strong {
+    font-size: 2vh;
+  }
+
+  section .wrap .bot ul li span {
+    font-size: 4rem;
+    height: 25%;
+  }
+  section .wrap .bot ul li img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  }
+}

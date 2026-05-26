@@ -1,0 +1,257 @@
+html {
+    height: 100%;
+    overflow: hidden;
+    font-size: 62.5%;
+}
+body {
+    color: #DEE5FF;
+    font-family: 'Pretendard';
+}
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+.bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+.bg video {
+    position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease;
+  opacity: 1;
+  filter: blur(rem);
+}
+.wrap {
+    width: 100%;
+    max-width: 160rem;
+    max-height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.grade-good p {
+    background: #42BFEC;
+    color: white;
+}
+
+.grade-moderate p {
+    background: #4CAF50;
+    color: #E9CDFF;
+}
+
+.grade-bad p {
+    background: #FF9800;
+    color: white;
+}
+
+.grade-very-bad p {
+    background: #F44336;
+    color: white;
+}
+
+header {
+    margin-top: 8rem;
+}
+header .wrap {
+    text-align: center;
+}
+header .wrap h1 {
+    font-size: 5rem;
+    color: #eee;
+    font-family: 'Pretendard';
+    font-weight: 500;
+}
+header .wrap h1 + div {
+    font-size: 3rem;
+    color: #DCDDDE;
+    font-family: "Suit";
+    font-weight: 400;
+    margin-top: 2rem;
+}
+section .wrap .top {
+    margin-top: 2rem;
+}
+section .wrap .top .lbox img {
+    height: 21rem;
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+}
+.ani {
+    animation: sun 20s linear infinite;
+}
+@keyframes sun {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+section .wrap .top .lbox article h3 {
+    font-size: 18rem;
+    font-family: "Suit";
+    font-weight: 700;
+}
+section .wrap .top .lbox article h3 span {
+    color: #7DE9FF;
+}
+section .wrap .top .lbox article p {
+    font-size: 3rem;
+    font-weight: 400;
+    display: inline-block;
+}
+section .wrap .top .lbox article p::after {
+    content: "";
+    display: inline-block;
+    background: #ddd;
+    width: rem;
+    height: 3rem;
+    margin: 0 1rem;
+}
+section .wrap .top .lbox article > span {
+    font-size: 2rem;
+    font-family: "Suit";
+    font-weight: 300;
+    display: inline-block;
+    position: relative;
+}
+section .wrap .top .rbox {
+    width: 40rem;
+    height: 20rem;
+    border-radius: 3rem;
+    background-color: rgb(25,37,64,0.6);
+    font-family: "Suit";
+}
+section .wrap .top .rbox > p {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 3rem 0 0 3rem;
+}
+section .wrap .top .rbox .fl {
+    margin: 2rem 3rem 3rem 3rem;
+}
+section .wrap .top .rbox article {
+    width: 16rem;
+    height: 9rem;
+}
+section .wrap .top .rbox article > span {
+    font-size: 1rem;
+    font-weight: 300;
+}
+section .wrap .top .rbox article h3 {
+    margin: rem 0;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #DEE5FF;
+}
+section .wrap .top .rbox article h3 span {
+    font-size: 1rem;
+    font-weight: 300;
+}
+section .wrap .top .rbox article p {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .wrap .top .rbox article:last-child h3 span {
+    color: #DEE5FF;
+}
+
+section .wrap .mid {
+    margin: 4rem 0;   
+}
+section .wrap .mid ul li {
+    width: 15%;
+    height: 15rem;
+    background-color: rgb(25,37,64,0.6);
+    border-radius: 2rem;
+    padding-left: 2rem;
+    font-family: "Suit";
+}
+section .wrap .mid ul li img {
+    margin-top: 1rem;
+}
+section .wrap .mid ul li span {
+    display: block;
+    font-weight: 400;
+    font-size: 2rem;
+    color: #BDBEC2;
+    margin-top: 1rem;
+}
+section .wrap .mid ul li p {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+section .wrap .mid ul li p em {
+    font-style: normal;
+}
+section .wrap .bot {
+    font-family: "Suit";
+}
+section .wrap .bot h4 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+section .wrap .bot ul {
+    margin-top: 3rem;
+}
+section .wrap .bot ul li:first-child {
+    background-color: rgba(255,255,255,0.01);
+    backdrop-filter: blur(rem);
+    border: rem solid rgba(25,37,64,0.6);
+}
+section .wrap .bot ul li {
+    width: 19%;
+    height: 21rem;
+    border-radius: 3rem;
+    background-color: rgba(25,37,64,0.6);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+section .wrap .bot ul li p {
+    margin-top: 2rem;
+    color: #A3A6FF;
+    font-size: 2rem;
+}
+section .wrap .bot ul li img {
+     transform: scale(0.6);
+     width: 6rem;
+}
+section .wrap .bot ul li strong {
+    font-size: 2rem;
+    font-weight: 500;
+}
+section .wrap .bot ul li span {
+    font-size: 1rem;
+    color: #A3AAC4;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+section .wrap .bot ul li em {
+    font-style: normal;
+    color: #94A3B8;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
