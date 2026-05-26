@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>날씨정보</title>
+
+<link rel="stylesheet" href="reset/css/reset.css">
+<link rel="stylesheet" href="reset/font/css/font.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/x_style.css">
+
+<script src="../location-loader.js"></script>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>율곡고등학교</h1>
+        <p id="date-time">2026년 05월 22일 금요일 오후 02:52</p>
+    </div>
+</header>
+
+<section id="top">
+
+    <div class="wrap">
+
+        <!-- LEFT -->
+        <div class="lbox">
+
+            <article>
+
+                <span>TODAY'S VIBE</span>
+
+                <div class="temp-wrap">
+                    <h3 id="current-temp">19</h3>
+                    <em>°c</em>
+                </div>
+                <p class="weather-desc" id="current-weather">
+                    대체로 흐림
+                </p>
+
+
+                <ol class="temp-range">
+                    <li id="temp-high">H:19°</li>
+                    <li id="temp-low">L:19°</li>
+                </ol>
+
+            </article>
+
+            <img id="current-weather-icon" class="main-weather-img" src="images/3main.png" alt="날씨">
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="rbox">
+
+            <h4>대기질</h4>
+
+            <p id="air-desc">
+                Healthy for students
+            </p>
+
+            <div class="air-grade" id="air-grade">
+                Good
+            </div>
+
+            <ol class="air-list">
+
+                <!-- PM10 -->
+                <li>
+
+                    <div class="circle-box">
+
+                        <svg class="circle-svg" width="220" height="220">
+
+                            <circle
+                            class="circle-bg"
+                            cx="110"
+                            cy="110"
+                            r="80" />
+
+                            <circle
+                            class="circle-progress pm10-progress"
+                            cx="110"
+                            cy="110"
+                            r="80" />
+                        </svg>
+
+                        <div class="circle-content">
+                            <strong id="pm10-circle-value">0</strong>
+                            <span>PM10</span>
+                        </div>
+
+                    </div>
+
+                    <dl class="air-info">
+                        <dt>PM10(미세먼지)</dt>
+                        <dd id="pm10">0</dd>
+                    </dl>
+
+                </li>
+
+                <!-- PM25 -->
+                <li>
+
+                    <div class="circle-box">
+
+                        <svg class="circle-svg" width="220" height="220">
+
+                            <circle
+                            class="circle-bg"
+                            cx="110"
+                            cy="110"
+                            r="80" />
+
+                            <circle
+                            class="circle-progress pm25-progress"
+                            cx="110"
+                            cy="110"
+                            r="80" />
+                        </svg>
+
+                        <div class="circle-content">
+                            <strong id="pm25-circle-value">0</strong>
+                            <span>PM2.5</span>
+                        </div>
+
+                    </div>
+
+                    <dl class="air-info">
+                        <dt>PM2.5(초미세먼지)</dt>
+                        <dd id="pm25">0</dd>
+                    </dl>
+
+                </li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!-- WEATHER INFO -->
+<section id="weather-info">
+    <div class="wrap">
+        <ul class="weather-card-list">
+            <!-- 습도 -->
+            <li class="humidity-card">
+                <div class="weather-card-text">
+                    <h4>습도</h4>
+                    <p>
+                        <span id="current-humidity">22</span>
+                    </p>
+                </div>
+                <div class="weather-icon-circle">
+                    <img src="images/humidity-icon.png" alt="습도">
+                </div>
+            </li>
+            <!-- 풍속 -->
+            <li class="wind-card">
+
+                <div class="weather-card-text">
+                    <h4>풍속</h4>
+                    <p>
+                        <span id="current-wind">0.97</span>
+                    </p>
+                </div>
+                <div class="weather-icon-circle">
+                    <img src="images/wind-icon.png" alt="풍속">
+                </div>
+            </li>
+            <!-- 구름량 -->
+            <li class="cloud-card">
+                <div class="weather-card-text">
+                    <h4>구름량</h4>
+                    <p>
+                        <span id="current-clouds">100</span>
+                    </p>
+                </div>
+                <div class="weather-icon-circle">
+                    <img src="images/cloud-icon.png" alt="구름">
+                </div>
+            </li>
+            <!-- 체감온도 -->
+            <li class="feels-card">
+                <div class="weather-card-text">
+                    <h4>체감온도</h4>
+                    <p>
+                        <span id="feels-like">18</span>
+                    </p>
+                </div>
+                <div class="weather-icon-circle">
+                    <img src="images/temperatuer-icon.png" alt="체감온도">
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<!-- FORECAST -->
+<section id="forecast">
+
+    <div class="wrap">
+
+        <div class="forecast-box">
+
+            <h3>5-Day Forecast</h3>
+
+            <ul>
+
+                <!-- DAY 1 -->
+                <li>
+
+                    <p id="forecast1-date">TUE</p>
+
+                    <img
+                    id="forecast1-icon"
+                    src="images/sun.png"
+                    alt="날씨">
+
+                    <div class="forecast-temp">
+                        <strong id="forecast1-temp">
+                            19°
+                        </strong>
+
+                        <span id="forecast1-desc">
+                            맑음
+                        </span>
+                    </div>
+
+                </li>
+
+                <!-- DAY 2 -->
+                <li>
+
+                    <p id="forecast2-date">WED</p>
+
+                    <img
+                    id="forecast2-icon"
+                    src="images/cloud.png"
+                    alt="날씨">
+
+                    <div class="forecast-temp">
+                        <strong id="forecast2-temp">
+                            21°
+                        </strong>
+
+                        <span id="forecast2-desc">
+                            흐림
+                        </span>
+                    </div>
+
+                </li>
+
+                <!-- DAY 3 -->
+                <li>
+
+                    <p id="forecast3-date">THU</p>
+
+                    <img
+                    id="forecast3-icon"
+                    src="images/sun.png"
+                    alt="날씨">
+
+                    <div class="forecast-temp">
+                        <strong id="forecast3-temp">
+                            19°
+                        </strong>
+
+                        <span id="forecast3-desc">
+                            맑음
+                        </span>
+                    </div>
+
+                </li>
+
+                <!-- DAY 4 -->
+                <li>
+
+                    <p id="forecast4-date">FRI</p>
+
+                    <img
+                    id="forecast4-icon"
+                    src="images/sun.png"
+                    alt="날씨">
+
+                    <div class="forecast-temp">
+                        <strong id="forecast4-temp">
+                            18°
+                        </strong>
+
+                        <span id="forecast4-desc">
+                            맑음
+                        </span>
+                    </div>
+
+                </li>
+
+                <!-- DAY 5 -->
+                <li>
+
+                    <p id="forecast5-date">SAT</p>
+
+                    <img
+                    id="forecast5-icon"
+                    src="images/rain.png"
+                    alt="날씨">
+
+                    <div class="forecast-temp">
+                        <strong id="forecast5-temp">
+                            16°
+                        </strong>
+
+                        <span id="forecast5-desc">
+                            비
+                        </span>
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
