@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="reset/css/reset.css">
+<link rel="stylesheet" href="font/css/font.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/x_style.css">
+<link rel="stylesheet" href="../layout/layout.css">
+
+<title>날씨정보</title>
+
+<script src="../storage/storage-manager.js"></script>
+<script src="../config/tab-state.js"></script>
+<script src="../layout/layout-manager.js"></script>
+<script src="../location-loader.js"></script>
+</head>
+
+<body data-weather-layout-root>
+
+<header>
+
+    <div class="wrap">
+
+        <div class="header-top">
+
+            <div class="header-left">
+
+                <h1 id="location-title"
+                    class="logo">
+                    METRO STATION
+                </h1>
+
+                <div class="date-time"
+                     id="date-time">
+                    08:42 AM
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="line"></div>
+
+</header>
+
+<main>
+
+<section id="top"
+         data-weather-layout-area>
+
+<div class="wrap top-grid weather-grid"
+     data-weather-layout-area>
+
+<!-- LEFT -->
+
+<div class="left-hero current-weather"
+     data-weather-layout-shell>
+
+    <article class="weather-main"
+             data-weather-section="mainWeather">
+
+        <h3 id="current-temp"
+            class="weather-temp-large">
+            24°
+        </h3>
+
+        <div class="hero-bottom">
+
+            <div class="weather-thumb">
+
+                <img id="current-weather-icon"
+                     src="images/1main.png"
+                     alt="날씨">
+
+            </div>
+
+            <div class="status-group">
+
+                <div class="status-card">
+
+                    <p>STATUS</p>
+
+                    <strong id="current-weather">
+                        OPTIMAL
+                    </strong>
+
+                </div>
+
+                <div class="status-card dark">
+
+                    <p>ALERTS</p>
+
+                    <strong>
+                        NONE
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="right-panel"
+     data-weather-layout-shell>
+
+<div class="right-grid">
+
+    <!-- HUMIDITY -->
+
+    <article class="weather-detail-card"
+             data-weather-section="weatherCards">
+
+        <div class="weather-detail-head">
+            <span class="weather-detail-icon">
+                <img src="images/humidity-icon.png"
+                     alt="">
+            </span>
+
+            <p>HUMIDITY</p>
+        </div>
+
+        <strong id="current-humidity">
+            42%
+        </strong>
+
+    </article>
+
+    <!-- WIND -->
+
+    <article class="weather-detail-card"
+             data-weather-section="weatherCards">
+
+        <div class="weather-detail-head">
+            <span class="weather-detail-icon">
+                <img src="images/wind-icon.png"
+                     alt="">
+            </span>
+
+            <p>WIND SPEED</p>
+        </div>
+
+        <strong id="current-wind">
+            12 km/h
+        </strong>
+
+    </article>
+
+    <!-- CLOUD -->
+
+    <article class="weather-detail-card"
+             data-weather-section="weatherCards">
+
+        <div class="weather-detail-head">
+            <span class="weather-detail-icon">
+                <img src="images/cloud-icon.png"
+                     alt="">
+            </span>
+
+            <p>CLOUD COVER</p>
+        </div>
+
+        <strong id="current-clouds">
+            15%
+        </strong>
+
+    </article>
+
+    <!-- TEMP -->
+
+    <article class="weather-detail-card"
+             data-weather-section="weatherCards">
+
+        <div class="weather-detail-head">
+            <span class="weather-detail-icon">
+                <img src="images/temperatuer-icon.png"
+                     alt="">
+            </span>
+
+            <p>FEELS LIKE</p>
+        </div>
+
+        <strong id="current-temp-max">
+            26°
+        </strong>
+
+    </article>
+
+    <!-- AIR -->
+
+    <div class="air-wrap"
+         data-weather-section="airQuality">
+
+        <article id="pm10-card"
+                 class="air-quality-card grade-good">
+
+            <div class="air-top">
+
+                <div class="air-title">
+                    PM10
+                </div>
+
+                <div class="air-number"
+                     id="pm10-number">
+                    --
+                </div>
+
+            </div>
+
+            <div class="air-info">
+
+                <div>
+
+                    <span>FINE DUST</span>
+
+                    <strong id="pm10">
+                        -- ㎍/㎥
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <p id="pm10-grade">
+               GOOD
+            </p>
+
+        </article>
+
+        <article id="pm25-card"
+                 class="air-quality-card grade-good">
+
+            <div class="air-top">
+
+                <div class="air-title">
+                    PM2.5
+                </div>
+
+                <div class="air-number"
+                     id="pm25-number">
+                    --
+                </div>
+
+            </div>
+
+            <div class="air-info">
+
+                <div>
+
+                    <span>ULTRAFINE DUST</span>
+
+                    <strong id="pm25">
+                        -- ㎍/㎥
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <p id="pm25-grade">
+               GOOD
+            </p>
+
+        </article>
+
+    </div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FORECAST -->
+
+<section id="bot"
+         data-weather-section="fiveDayForecast">
+
+<div class="wrap">
+
+<div class="forecast-wrap">
+
+    <div class="forecast-title">
+        5-CYCLE PROJECTION
+    </div>
+
+    <ul class="forecast-list flb">
+
+        <li class="forecast-card">
+
+            <p id="forecast1-date">
+                WED
+            </p>
+
+            <img id="forecast1-icon"
+                 src=""
+                 alt="날씨">
+
+            <strong id="forecast1-temp">
+                25° / 18°
+            </strong>
+
+            <span id="forecast1-desc">
+                맑음
+            </span>
+
+        </li>
+
+        <li class="forecast-card">
+
+            <p id="forecast2-date">
+                THU
+            </p>
+
+            <img id="forecast2-icon"
+                 src=""
+                 alt="날씨">
+
+            <strong id="forecast2-temp">
+                23° / 17°
+            </strong>
+
+            <span id="forecast2-desc">
+                흐림
+            </span>
+
+        </li>
+
+        <li class="forecast-card">
+
+            <p id="forecast3-date">
+                FRI
+            </p>
+
+            <img id="forecast3-icon"
+                 src=""
+                 alt="날씨">
+
+            <strong id="forecast3-temp">
+                20° / 15°
+            </strong>
+
+            <span id="forecast3-desc">
+                비
+            </span>
+
+        </li>
+
+        <li class="forecast-card">
+
+            <p id="forecast4-date">
+                SAT
+            </p>
+
+            <img id="forecast4-icon"
+                 src=""
+                 alt="날씨">
+
+            <strong id="forecast4-temp">
+                21° / 16°
+            </strong>
+
+            <span id="forecast4-desc">
+                흐림
+            </span>
+
+        </li>
+
+        <li class="forecast-card">
+
+            <p id="forecast5-date">
+                SUN
+            </p>
+
+            <img id="forecast5-icon"
+                 src=""
+                 alt="날씨">
+
+            <strong id="forecast5-temp">
+                26° / 19°
+            </strong>
+
+            <span id="forecast5-desc">
+                맑음
+            </span>
+
+        </li>
+
+    </ul>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

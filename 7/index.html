@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="reset/css/reset.css">
+    <link rel="stylesheet" href="font/css/font.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/x_style.css">
+    <link rel="stylesheet" href="../layout/layout.css">
+
+    <title>Ambient Weather Signage</title>
+
+    <script src="../storage/storage-manager.js"></script>
+    <script src="../config/tab-state.js"></script>
+    <script src="../layout/layout-manager.js"></script>
+    <script src="../location-loader.js"></script>
+</head>
+
+<body data-weather-layout-root>
+
+    <!-- BACKGROUND -->
+    <div class="bg-layer" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow1" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow2" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow3" aria-hidden="true"></div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="wrap header-wrap">
+            <div class="logo-group">
+                <h1 class="logo">METEOROS</h1>
+            </div>
+
+            <div class="date-time" id="date-time">
+                2026.03.23 04:20 PM
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- TOP -->
+        <section id="top" data-weather-layout-area>
+
+            <div class="wrap top-grid weather-grid" data-weather-layout-area>
+
+                <!-- LEFT -->
+                <div class="left-hero weather-card current-weather" data-weather-layout-shell>
+
+                    <div class="overlay" aria-hidden="true"></div>
+                    <div class="hero-aura" aria-hidden="true"></div>
+
+                    <div class="hero-inner">
+
+                        <article class="weather-main"
+                                 data-weather-section="mainWeather">
+
+                            <div class="hero-copy">
+
+                                <div class="hero-meta">LIVE WEATHER</div>
+
+                                <h3 id="current-temp"
+                                    class="weather-temp-large">
+                                    24°
+                                </h3>
+
+                                <div class="weather-state">
+                                    <span id="current-weather"
+                                          class="weather-desc">
+                                        SERENE SKY
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="weather-visual">
+                                <span class="weather-icon-shell">
+                                    <img id="current-weather-icon"
+                                         src="images/1.png"
+                                         alt="weather">
+                                </span>
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="right-panel"
+                     data-weather-layout-shell>
+
+                    <div class="right-grid">
+
+                        <!-- HUMIDITY -->
+                        <article class="glass-card weather-detail-card"
+                                 data-weather-section="weatherCards">
+
+                            <div class="metric-head">
+                                <span class="metric-icon metric-icon-humidity" aria-hidden="true">
+                                    <img src="images/humidity-icon.png" alt="">
+                                </span>
+                                <p>HUMIDITY</p>
+                            </div>
+
+                            <strong id="current-humidity">
+                                42%
+                            </strong>
+
+                        </article>
+
+                        <!-- WIND -->
+                        <article class="glass-card weather-detail-card"
+                                 data-weather-section="weatherCards">
+
+                            <div class="metric-head">
+                                <span class="metric-icon metric-icon-wind" aria-hidden="true">
+                                    <img src="images/wind-icon.png" alt="">
+                                </span>
+                                <p>WIND SPEED</p>
+                            </div>
+
+                            <strong id="current-wind">
+                                12 km/h
+                            </strong>
+
+                        </article>
+
+                        <!-- CLOUD -->
+                        <article class="glass-card weather-detail-card"
+                                 data-weather-section="weatherCards">
+
+                            <div class="metric-head">
+                                <span class="metric-icon metric-icon-cloud" aria-hidden="true">
+                                    <img src="images/cloud-icon.png" alt="">
+                                </span>
+                                <p>CLOUDS</p>
+                            </div>
+
+                            <strong id="current-clouds">
+                                85%
+                            </strong>
+
+                        </article>
+
+                        <!-- TEMP -->
+                        <article class="glass-card weather-detail-card"
+                                 data-weather-section="weatherCards">
+
+                            <div class="metric-head">
+                                <span class="metric-icon metric-icon-temp" aria-hidden="true">
+                                    <img src="images/temperatuer-icon.png" alt="">
+                                </span>
+                                <p>MIN / MAX</p>
+                            </div>
+
+                            <strong id="current-temp-max">
+                                19° / 27°
+                            </strong>
+
+                        </article>
+
+                        <!-- AIR -->
+                        <div class="air-wrap"
+                             data-weather-section="airQuality">
+
+                            <div class="air-topline">
+                                <div class="air-title">
+                                    AIR QUALITY
+                                </div>
+                                <div class="air-sync">REALTIME INDEX</div>
+                            </div>
+
+                            <div class="air-grid">
+
+                                <article id="pm10-card"
+                                         class="air-quality-card grade-good">
+
+                                    <span>PM10</span>
+
+                                    <h3 id="pm10"
+                                        class="air-quality-value">
+                                        12 <em>ug/m3</em>
+                                    </h3>
+
+                                    <div class="air-meter" aria-hidden="true">
+                                        <i></i>
+                                    </div>
+
+                                    <p id="pm10-grade">
+                                        GOOD
+                                    </p>
+
+                                </article>
+
+                                <article id="pm25-card"
+                                         class="air-quality-card grade-good">
+
+                                    <span>PM2.5</span>
+
+                                    <h3 id="pm25"
+                                        class="air-quality-value">
+                                        4 <em>ug/m3</em>
+                                    </h3>
+
+                                    <div class="air-meter" aria-hidden="true">
+                                        <i></i>
+                                    </div>
+
+                                    <p id="pm25-grade">
+                                        GOOD
+                                    </p>
+
+                                </article>
+
+                            </div>
+
+                            <p id="air-desc"
+                               class="air-desc">
+                               Atmospheric data is synchronized.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FORECAST -->
+        <section id="bot"
+                 data-weather-section="fiveDayForecast">
+
+            <div class="wrap">
+
+                <div class="forecast-title">
+                    5-DAY FORECAST
+                </div>
+
+                <ul class="forecast-list flb">
+
+                    <li class="forecast-card forecast-card-active">
+
+                        <p id="forecast1-date">
+                            TODAY
+                        </p>
+
+                        <img id="forecast1-icon"
+                             src="images/1.png"
+                             alt="weather">
+
+                        <strong id="forecast1-temp">
+                            24°
+                        </strong>
+
+                        <span id="forecast1-desc">
+                            Clear
+                        </span>
+
+                    </li>
+
+                    <li class="forecast-card">
+
+                        <p id="forecast2-date">
+                            THU
+                        </p>
+
+                        <img id="forecast2-icon"
+                             src="images/2.png"
+                             alt="weather">
+
+                        <strong id="forecast2-temp">
+                            21°
+                        </strong>
+
+                        <span id="forecast2-desc">
+                            Rain
+                        </span>
+
+                    </li>
+
+                    <li class="forecast-card">
+
+                        <p id="forecast3-date">
+                            FRI
+                        </p>
+
+                        <img id="forecast3-icon"
+                             src="images/3.png"
+                             alt="weather">
+
+                        <strong id="forecast3-temp">
+                            23°
+                        </strong>
+
+                        <span id="forecast3-desc">
+                            Cloudy
+                        </span>
+
+                    </li>
+
+                    <li class="forecast-card">
+
+                        <p id="forecast4-date">
+                            SAT
+                        </p>
+
+                        <img id="forecast4-icon"
+                             src="images/4.png"
+                             alt="weather">
+
+                        <strong id="forecast4-temp">
+                            26°
+                        </strong>
+
+                        <span id="forecast4-desc">
+                            Mild
+                        </span>
+
+                    </li>
+
+                    <li class="forecast-card">
+
+                        <p id="forecast5-date">
+                            SUN
+                        </p>
+
+                        <img id="forecast5-icon"
+                             src="images/5.png"
+                             alt="weather">
+
+                        <strong id="forecast5-temp">
+                            28°
+                        </strong>
+
+                        <span id="forecast5-desc">
+                            Sunny
+                        </span>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

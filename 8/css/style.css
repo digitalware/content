@@ -1,0 +1,497 @@
+@charset "utf-8";
+
+body{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    background:#e8e5df;
+    font-family:"Pretendard";
+    color:#111;
+    position:relative;
+    isolation:isolate;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    background:
+        linear-gradient(115deg, transparent 0 42%, rgba(255,255,255,.42) 48%, transparent 55%),
+        repeating-linear-gradient(0deg, rgba(17,17,17,.035) 0 1px, transparent 1px 34px);
+    background-size:260% 100%, 100% 34px;
+    opacity:.55;
+    animation:ambientSweep 18s ease-in-out infinite;
+}
+
+header,
+main{
+    position:relative;
+    z-index:1;
+}
+
+/* =========================
+COMMON
+========================= */
+
+.wrap{
+    width:1820px;
+    margin:0 auto;
+}
+
+.flb{
+    display:flex;
+}
+
+.line{
+    width:100%;
+    height:6px;
+    background:#111;
+    position:relative;
+    overflow:hidden;
+}
+
+.line::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    width:28%;
+    background:#ffe100;
+    transform:translateX(-120%);
+    animation:lineScan 7s ease-in-out infinite;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+    padding-top:24px;
+}
+
+.header-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
+}
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:.12em;
+}
+
+.date-time{
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:.08em;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    font-size:16px;
+    font-weight:600;
+}
+
+/* =========================
+MAIN
+========================= */
+
+main{
+    padding-top:10px;
+}
+
+/* =========================
+TOP GRID
+========================= */
+
+.top-grid{
+    display:grid;
+    grid-template-columns:1fr 660px;
+    gap:40px;
+}
+
+/* =========================
+LEFT HERO
+========================= */
+
+.left-hero{
+    position:relative;
+}
+
+.weather-temp-large{
+    font-size:300px;
+    font-weight:800;
+    line-height:.9;
+    letter-spacing:-.08em;
+}
+
+.hero-bottom{
+    display:flex;
+    align-items:flex-start;
+    gap:30px;
+    margin-top:10px;
+}
+
+.weather-thumb{
+    width:280px;
+    height:280px;
+    border:4px solid #111;
+    position:relative;
+    overflow:hidden;
+    box-shadow:10px 10px 0 #111;
+}
+
+.weather-thumb::after{
+    content:"";
+    position:absolute;
+    inset:-35%;
+    background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,.52), transparent 65%);
+    transform:translateX(-65%) rotate(8deg);
+    animation:panelSheen 8s ease-in-out infinite;
+}
+
+.weather-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#f7fbff;
+}
+
+.status-group{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    padding-top:30px;
+}
+
+.status-card{
+    width:240px;
+    padding:28px 24px;
+    border:4px solid #111;
+    background:#f3f3f3;
+    box-shadow:8px 8px 0 #111;
+}
+
+.status-card.dark{
+    background:#111;
+    color:#ffe100;
+}
+
+.status-card p{
+    font-size:14px;
+    letter-spacing:.18em;
+    color:#777;
+    margin-bottom:12px;
+}
+
+.status-card.dark p{
+    color:#999;
+}
+
+.status-card strong{
+    font-size:24px;
+    font-weight:700;
+}
+
+.weather-state{
+    display:none;
+}
+
+/* =========================
+RIGHT PANEL
+========================= */
+
+.right-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.weather-detail-card{
+    height:110px;
+    border:4px solid #111;
+    background:#ece9e3;
+    padding:18px 22px;
+    box-shadow:8px 8px 0 #111;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.weather-detail-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.weather-detail-icon{
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:3px solid #111;
+    background:#fff;
+    flex:0 0 auto;
+}
+
+.weather-detail-icon img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+}
+
+.weather-detail-card p{
+    font-size:14px;
+    letter-spacing:.18em;
+    color:#777;
+    margin-bottom:0;
+}
+
+.weather-detail-card strong{
+    font-size:46px;
+    font-weight:700;
+    line-height:1;
+}
+
+/* =========================
+AIR QUALITY
+========================= */
+
+.air-wrap{
+    grid-column:1/3;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    margin-top:10px;
+}
+
+.air-quality-card{
+    border:4px solid #111;
+    background:#ece9e3;
+    padding:30px;
+    box-shadow:8px 8px 0 #111;
+}
+
+.air-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    padding-bottom:16px;
+    border-bottom:4px solid #111;
+    margin-bottom:24px;
+}
+
+.air-title{
+    font-size:20px;
+    font-weight:800;
+}
+
+.air-number{
+    font-size:64px;
+    font-weight:800;
+    color:#ef3d2f;
+    animation:numberBlink 5s steps(1, end) infinite;
+}
+
+.air-info{
+    display:flex;
+    gap:40px;
+}
+
+.air-info div span{
+    display:block;
+    font-size:13px;
+    color:#777;
+    margin-bottom:8px;
+}
+
+.air-info div strong{
+    font-size:20px;
+    font-weight:700;
+}
+
+.air-quality-card > p{
+    margin-top:22px;
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:.12em;
+}
+
+/* =========================
+FORECAST
+========================= */
+
+#bot{
+    margin-top:20px;
+}
+
+.forecast-wrap{
+    border:4px solid #111;
+    background:#ece9e3;
+    box-shadow:8px 8px 0 #111;
+    padding:10px 20px;
+}
+
+.forecast-title{
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:.15em;
+    margin-bottom:24px;
+    border-bottom:3px solid #111;
+    display:inline-block;
+    padding-bottom:8px;
+}
+
+.forecast-list{
+    justify-content:space-between;
+    align-items:center;
+}
+
+.forecast-card{
+    flex:1;
+    text-align:center;
+    position:relative;
+}
+
+.forecast-card:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:20px;
+    width:2px;
+    height:70px;
+    background:#111;
+    opacity:.4;
+}
+
+.forecast-card p{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.forecast-card img{
+    width:60px;
+    height:60px;
+    margin-bottom:18px;
+    object-fit: contain;
+}
+
+.forecast-card strong{
+    display:block;
+    font-size:44px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.forecast-card span{
+    font-size:22px;
+    color:#444;
+}
+
+/* =========================
+GRADE
+========================= */
+
+.grade-good{
+    color:#1d7cff;
+}
+
+.grade-moderate{
+    color:#d39b00;
+}
+
+.grade-bad{
+    color:#ef6a3a;
+}
+
+.grade-very-bad{
+    color:#ef3d2f;
+}
+
+/* =========================
+AMBIENT MOTION
+========================= */
+
+@keyframes ambientSweep{
+    0%{
+        background-position:120% 0, 0 0;
+    }
+    45%{
+        background-position:-40% 0, 0 12px;
+    }
+    100%{
+        background-position:-40% 0, 0 34px;
+    }
+}
+
+@keyframes lineScan{
+    0%,
+    28%{
+        transform:translateX(-120%);
+    }
+    58%,
+    100%{
+        transform:translateX(420%);
+    }
+}
+
+@keyframes panelSheen{
+    0%,
+    48%{
+        transform:translateX(-70%) rotate(8deg);
+    }
+    72%,
+    100%{
+        transform:translateX(70%) rotate(8deg);
+    }
+}
+
+@keyframes numberBlink{
+    0%,
+    92%,
+    100%{
+        opacity:1;
+    }
+    94%{
+        opacity:.62;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+    }
+}
+
+/* =========================
+LAYOUT MANAGER
+========================= */
+
+[data-weather-layout-area].layout-single{
+    grid-template-columns:1fr;
+}
+
+[data-weather-layout-area].layout-double{
+    grid-template-columns:1fr 1fr;
+}
+
+[data-weather-layout-area].layout-triple{
+    grid-template-columns:repeat(3,1fr);
+}
