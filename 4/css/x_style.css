@@ -1,0 +1,56 @@
+@media (max-width: 767px) {
+.wrap {
+    width: 94%;
+}
+header {
+    height: 100px;
+    width: 100%;
+}
+
+#top .wrap {
+    display: block;
+}
+
+.lbox {
+    width: 100%;
+}
+.main-weather-img {
+    width: 400px;
+    right: -90px;
+}
+.rbox {
+    width: 100%;
+    padding: 40px 0;
+}
+.rbox h4 {
+    padding-left: 32px;
+}
+.rbox>p {
+    padding-left: 32px;
+}
+.air-list {
+    padding: 0 32px;
+}
+.weather-card-list {
+    flex-wrap: wrap;
+}
+.weather-card-list li {
+    width: 36%;
+}
+.weather-card-text span {
+    font-size: 50px;
+}
+.forecast-box h3 {
+    display: none;
+}
+.forecast-temp strong {
+    font-size: 25px;
+}
+
+
+
+
+
+
+
+}
