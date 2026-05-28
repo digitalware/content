@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="reset/css/reset.css">
+<link rel="stylesheet" href="font/css/font.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/x_style.css">
+<link rel="stylesheet" href="../layout/layout.css">
+<title>날씨정보</title>
+<script src="../storage/storage-manager.js"></script>
+<script src="../config/tab-state.js"></script>
+<script src="../layout/layout-manager.js"></script>
+<script src="../location-loader.js"></script>
+</head>
+<body data-weather-layout-root>
+<header>
+<h1 id="location-title" class="fixed-title"></h1>
+<div class="header-right">
+<p id="date-time"></p>
+</div>
+</header>
+
+<section id="top" data-weather-layout-area>
+<h2 class="blind">메인날씨</h2>
+<div class="wrap" data-weather-layout-area>
+
+<div class="weather-main-card" data-weather-section="mainWeather">
+<div class="weather-content">
+<div class="weather-left">
+<p class="current-label">CURRENT WEATHER</p>
+
+<div class="temp-wrap">
+<h3 id="current-temp">19<span>°C</span></h3>
+</div>
+
+<div class="weather-status">
+<span class="status-badge" id="weather-status">Mostly Sunny</span>
+<span class="feels-like" id="feels-like">Feels like 18°C</span>
+</div>
+</div>
+
+<div class="weather-right">
+<img id="weather-icon" src="images/1main.png" alt="날씨">
+<div class="weather-glow"></div>
+</div>
+</div>
+</div>
+
+<div class="weather-info-wrap" data-weather-section="weatherCards">
+
+<div class="info-card wind-card">
+<div class="info-icon">
+<img src="images/wind-icon.png" alt="풍속">
+</div>
+<h4>WIND SPEED</h4>
+<p id="wind-speed">0.97<span>m/s</span></p>
+</div>
+
+<div class="info-card humidity-card">
+<div class="info-icon">
+<img src="images/humidity-icon.png" alt="습도">
+</div>
+<h4>HUMIDITY</h4>
+<p id="humidity"></p>
+</div>
+
+<div class="info-card cloud-card">
+<div class="info-icon">
+<img src="images/cloud-icon.png" alt="구름">
+</div>
+<h4>CLOUD</h4>
+<p id="daily-range">21°<span>/ 11°</span></p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="bot" data-weather-layout-area>
+<h2 class="blind">미세먼지 및 주간날씨</h2>
+
+<div class="wrap" data-weather-layout-area>
+
+<div class="air-card-wrap" data-weather-section="airQuality">
+
+<div class="air-card" id="pm10-card">
+<div class="air-top">
+<div class="air-icon">
+<img src="images/pm10.png" alt="PM10">
+</div>
+<h5>PM10</h5>
+</div>
+
+<div class="air-value-wrap">
+<p id="pm10-value">22</p>
+<span class="pm-status" id="pm10-status">좋음</span>
+</div>
+
+<div class="air-bar">
+<span id="pm10-bar"></span>
+</div>
+</div>
+
+<div class="air-card" id="pm25-card">
+<div class="air-top">
+<div class="air-icon">
+<img src="images/pm25.png" alt="PM2.5">
+</div>
+<h5>PM2.5</h5>
+</div>
+
+<div class="air-value-wrap">
+<p id="pm25-value">8</p>
+<span class="pm-status" id="pm25-status">좋음</span>
+</div>
+
+<div class="air-bar">
+<span id="pm25-bar"></span>
+</div>
+</div>
+
+</div>
+
+<div class="forecast-card" data-weather-section="fiveDayForecast">
+
+<h4>5-Day Forecast</h4>
+
+<ul id="forecast-list">
+
+</ul>
+
+</div>
+
+</div>
+</section>
+<script src="js/script-new.js"></script>
+</body>
+</html>

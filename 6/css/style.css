@@ -1,0 +1,675 @@
+html {
+    overflow: hidden;
+}
+body{
+background:#EEF5F6;
+font-family:"Pretendard",sans-serif;
+padding:20px;
+color:#1D2C34;
+overflow:auto;
+}
+.wrap{
+max-width:1820px;
+margin:0 auto;
+}
+header{
+height:100px;
+background:rgba(255,255,255,0.45);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border-radius:0 0 34px 34px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 42px;
+box-sizing:border-box;
+margin-bottom:24px;
+border:1px solid rgba(255,255,255,0.6);
+box-shadow:0 10px 30px rgba(0,0,0,0.03);
+}
+header h1{
+font-size:30px;
+font-weight:800;
+color:#005DB4;
+letter-spacing:-1px;
+}
+#date-time{
+font-size:18px;
+line-height:1.5;
+text-align:right;
+font-weight:600;
+color:#64717A;
+}
+#top{
+margin-bottom:12px;
+}
+#top .wrap{
+display:grid;
+grid-template-columns:640px 1fr;
+gap:24px;
+}
+.weather-main-card{
+height:470px;
+background:rgba(235,244,245,0.92);
+border-radius:42px;
+padding:42px;
+box-sizing:border-box;
+position:relative;
+overflow:hidden;
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,0.7),
+0 10px 35px rgba(0,0,0,0.04);
+}
+.weather-main-card::before{
+content:"";
+position:absolute;
+top:-120px;
+right:-120px;
+width:320px;
+height:320px;
+background:radial-gradient(circle,rgba(255,255,255,0.55),transparent 70%);
+filter:blur(10px);
+}
+.weather-content{
+height:100%;
+display:flex;
+justify-content:space-between;
+position:relative;
+z-index:2;
+}
+.weather-left{
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+.current-label{
+font-size:20px;
+font-weight:800;
+letter-spacing:3px;
+color:#005DB4;
+}
+#current-temp{
+font-size:170px;
+font-weight:900;
+line-height:0.9;
+letter-spacing:-10px;
+color:#005DB4;
+}
+#current-temp span{
+font-size:72px;
+font-weight:700;
+letter-spacing:-2px;
+color:#7CAEFF;
+}
+.weather-status{
+display:flex;
+align-items:center;
+gap:18px;
+}
+.status-badge{
+height:52px;
+padding:0 24px;
+border-radius:999px;
+background:linear-gradient(180deg,#98F08D,#80E16F);
+display:flex;
+align-items:center;
+font-size:17px;
+font-weight:700;
+color:#1E5C17;
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,0.5),
+0 4px 10px rgba(113,210,89,0.18);
+}
+.feels-like{
+font-size:19px;
+color:#66737C;
+}
+.weather-right{
+width:280px;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+}
+#weather-icon{
+width:280px;
+height:280px;
+object-fit:contain;
+position:relative;
+z-index:2;
+filter:drop-shadow(0 30px 30px rgba(0,0,0,0.12));
+}
+.weather-right::after{
+content:"";
+position:absolute;
+bottom:24px;
+width:170px;
+height:24px;
+background:rgba(0,0,0,0.14);
+filter:blur(16px);
+border-radius:50%;
+}
+.weather-info-wrap{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+}
+.info-card{
+height:230px;
+background:rgba(255,255,255,0.72);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border-radius:36px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+position:relative;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.7);
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,0.7),
+0 10px 30px rgba(0,0,0,0.03);
+}
+.info-card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,0.2) 50%,transparent 80%);
+}
+.info-icon{
+font-size:30px;
+margin-bottom:12px;
+opacity:0.9;
+display:flex;
+align-items:center;
+justify-content:center;
+width:40px;
+height:40px;
+}
+
+.info-icon img {
+    width:36px;
+    height:36px;
+    object-fit:contain;
+}
+.info-card h4{
+font-size:17px;
+font-weight:700;
+color:#62707A;
+margin-bottom:12px;
+}
+.info-card p{
+font-size:48px;
+font-weight:800;
+display:flex;
+align-items:flex-end;
+gap:4px;
+color:#1D2C34;
+}
+.info-card p span{
+font-size:22px;
+font-weight:700;
+margin-bottom:5px;
+}
+#bot .wrap{
+display:grid;
+grid-template-columns:640px 1fr;
+gap:12px;
+align-items:flex-end;
+width: 1820px;
+position: relative;
+top: -200px;
+}
+.air-card-wrap{
+display:flex;
+gap:24px;
+}
+.air-card{
+flex:1;
+height:350px;
+background:rgba(255,255,255,0.72);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border-radius:36px;
+padding:34px;
+box-sizing:border-box;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+border:1px solid rgba(255,255,255,0.7);
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,0.7),
+0 10px 30px rgba(0,0,0,0.03);
+}
+.air-top{
+display:flex;
+align-items:center;
+gap:10px;
+}
+.air-icon{
+font-size:22px;
+opacity:0.9;
+display:flex;
+align-items:center;
+justify-content:center;
+width:28px;
+height:28px;
+}
+
+.air-icon img {
+    width:24px;
+    height:24px;
+    object-fit:contain;
+}
+.air-top h5{
+font-size:24px;
+font-weight:700;
+color:#62707A;
+}
+.air-value-wrap{
+display:flex;
+align-items:flex-end;
+gap:10px;
+}
+.air-value-wrap p{
+font-size:72px;
+font-weight:800;
+line-height:1;
+}
+.pm-status{
+font-size:24px;
+font-weight:800;
+color:#1E9A41;
+margin-bottom:10px;
+}
+
+/* 미세먼지 등급별 스타일 */
+.air-card.good .pm-status {
+    color: #1E9A41;
+}
+
+.air-card.normal .pm-status {
+    color: #F39C12;
+}
+
+.air-card.bad .pm-status {
+    color: #E74C3C;
+}
+
+.air-card.very-bad .pm-status {
+    color: #8B0000;
+}
+
+.air-bar span {
+    display:block;
+    width:35%;
+    height:100%;
+    border-radius:999px;
+    background:linear-gradient(90deg,#1F8E3F,#8BE56E);
+    transition: all 0.3s ease;
+}
+
+.air-card.good .air-bar span {
+    background: linear-gradient(90deg, #1E9A41, #8BE56E);
+    width: 25%;
+}
+
+.air-card.normal .air-bar span {
+    background: linear-gradient(90deg, #F39C12, #FECA57);
+    width: 50%;
+}
+
+.air-card.bad .air-bar span {
+    background: linear-gradient(90deg, #E74C3C, #EC7063);
+    width: 75%;
+}
+
+.air-card.very-bad .air-bar span {
+    background: linear-gradient(90deg, #8B0000, #C0392B);
+    width: 100%;
+}
+
+.air-bar{
+width:100%;
+height:10px;
+border-radius:999px;
+background:#DDE5E6;
+overflow:hidden;
+}
+
+.forecast-card{
+background:rgba(235,244,245,0.92);
+border-radius:42px;
+padding:130px 34px;
+box-sizing:border-box;
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,0.7),
+0 10px 35px rgba(0,0,0,0.04);
+}
+.forecast-card h4{
+font-size:52px;
+font-weight:800;
+letter-spacing:-2px;
+color:#005DB4;
+margin-bottom:30px;
+}
+#forecast-list{
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+gap:16px;
+}
+.forecast-item{
+width:100px;
+min-height:180px;
+background:rgba(255,255,255,0.58);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+border-radius:40px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:18px 10px;
+box-sizing:border-box;
+border:1px solid rgba(255,255,255,0.7);
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,0.8),
+0 6px 20px rgba(0,0,0,0.03);
+transition:0.3s;
+}
+.forecast-today{
+background:linear-gradient(180deg,#2D7FD3,#7BACFF);
+transform:translateY(-18px);
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,0.25),
+0 18px 35px rgba(67,126,209,0.25);
+}
+.forecast-item h5{
+font-size:20px;
+font-weight:700;
+margin-bottom:20px;
+color:#61707A;
+}
+.forecast-today h5{
+color:white;
+}
+.forecast-icon{
+font-size:38px;
+margin-bottom:18px;
+}
+.forecast-temp{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:4px;
+}
+.forecast-temp .high{
+font-size:26px;
+font-weight:800;
+color:#1D2C34;
+}
+.forecast-temp .low{
+font-size:19px;
+font-weight:600;
+color:#96A3AC;
+}
+.forecast-today .forecast-temp .high,
+.forecast-today .forecast-temp .low{
+color:white;
+}
+
+/* ──────────────────────────────────────────────
+   애니메이션
+   ────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-2deg);
+    }
+    75% {
+        transform: rotate(2deg);
+    }
+}
+
+@keyframes gentleSway {
+    0%, 100% {
+        transform: rotate(0deg) translateY(0px);
+    }
+    25% {
+        transform: rotate(-1deg) translateY(-3px);
+    }
+    50% {
+        transform: rotate(0deg) translateY(0px);
+    }
+    75% {
+        transform: rotate(1deg) translateY(-3px);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes rotateSlow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* 헤더 애니메이션 */
+header {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+/* 메인 날씨 카드 */
+.weather-main-card {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* 날씨 아이콘 부동 효과 */
+#weather-icon {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* 정보 카드 */
+.info-card {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.wind-card {
+    animation-delay: 0.1s;
+}
+
+.humidity-card {
+    animation-delay: 0.2s;
+}
+
+.cloud-card {
+    animation-delay: 0.3s;
+}
+
+
+/* 미세먼지 카드 */
+.air-card {
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.air-card:nth-child(1) {
+    animation-delay: 0.4s;
+}
+
+.air-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+/* 예보 카드 */
+.forecast-card {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.forecast-item {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.forecast-item:nth-child(1) {
+    animation-delay: 0.7s;
+}
+
+.forecast-item:nth-child(2) {
+    animation-delay: 0.75s;
+}
+
+.forecast-item:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.forecast-item:nth-child(4) {
+    animation-delay: 0.85s;
+}
+
+.forecast-item:nth-child(5) {
+    animation-delay: 0.9s;
+}
+
+.forecast-item:nth-child(6) {
+    animation-delay: 0.95s;
+}
+
+.forecast-item:nth-child(7) {
+    animation-delay: 1s;
+}
+
+/* 예보 아이콘 */
+.forecast-icon {
+    animation: float 3.5s ease-in-out infinite;
+    font-size:38px;
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:60px;
+    height:60px;
+}
+
+.forecast-icon img {
+    width:50px;
+    height:50px;
+    object-fit:contain;
+}
+
+.forecast-item:nth-child(1) .forecast-icon {
+    animation-delay: 0s;
+}
+
+.forecast-item:nth-child(2) .forecast-icon {
+    animation-delay: 0.25s;
+}
+
+.forecast-item:nth-child(3) .forecast-icon {
+    animation-delay: 0.5s;
+}
+
+.forecast-item:nth-child(4) .forecast-icon {
+    animation-delay: 0.75s;
+}
+
+.forecast-item:nth-child(5) .forecast-icon {
+    animation-delay: 1s;
+}
+
+.forecast-item:nth-child(6) .forecast-icon {
+    animation-delay: 1.25s;
+}
+
+.forecast-item:nth-child(7) .forecast-icon {
+    animation-delay: 1.5s;
+}
+
+/* 예보 아이템 */
+.forecast-item {
+    cursor: default;
+}

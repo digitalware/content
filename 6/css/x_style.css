@@ -1,0 +1,49 @@
+@media (max-width: 767px) {
+
+.wrap {
+    width: 94%;
+}
+#top .wrap {
+    width: 94%;
+    display: block;
+}
+.weather-info-wrap {
+    margin-top: 20px;
+}
+#bot .wrap {
+    width: 94%;
+    display: block;
+    position: static;
+}
+.air-card-wrap {
+    margin-top: 20px;
+}
+.info-card p {
+    font-size: 40px;
+}
+.forecast-card {
+    margin-top: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
